@@ -1,0 +1,6 @@
+# Project exclude paths
+/two-wheeler-platform/common/target/
+/two-wheeler-platform/gateway/target/
+/two-wheeler-platform/platform-service/target/
+/two-wheeler-platform/web-bff/target/
+/two-wheeler-platform/workshop-service/target/

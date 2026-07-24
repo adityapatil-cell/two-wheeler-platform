@@ -1,0 +1,109 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Common defaults — included by every service via Spring Boot config import.
+# Each service's own application.yml overrides specific values.
+#
+# To use in a service:
+#   spring:
+#     config:
+#       import: "classpath:common-defaults.yml"
+# ─────────────────────────────────────────────────────────────────────────────
+
+spring:
+
+  # ─── JPA defaults ──────────────────────────────────────────────────────────
+  jpa:
+    hibernate:
+      ddl-auto: validate          # Flyway manages schema — Hibernate only validates
+    show-sql: false               # Never log SQL in production (use slow query log instead)
+    properties:
+      hibernate:
+        format_sql: false
+        default_schema: ${SERVICE_SCHEMA}   # Each service sets its own schema name
+
+  # ─── Flyway ────────────────────────────────────────────────────────────────
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    schemas: ${SERVICE_SCHEMA}
+
+  # ─── Security — Cognito JWKS endpoint ──────────────────────────────────────
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Services override this with their own Cognito pool URL
+          # Format: https://cognito-idp.{region}.amazonaws.com/{userPoolId}
+          issuer-uri: ${COGNITO_ISSUER_URI}
+
+# ─── Actuator ─────────────────────────────────────────────────────────────────
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0            # 100% sampling in dev — tune down in prod
+
+# ─── OpenTelemetry — send traces to AWS X-Ray via OTLP ──────────────────────
+otel:
+  exporter:
+    otlp:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4317}
+  resource:
+    attributes:
+      service.name: ${spring.application.name}
+
+# ─── Resilience4j defaults ────────────────────────────────────────────────────
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        failure-rate-threshold: 50
+        sliding-window-size: 10
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    configs:
+      default:
+        max-attempts: 3
+        wait-duration: 500ms
+        retry-exceptions:
+          - java.net.ConnectException
+          - java.net.SocketTimeoutException
+  bulkhead:
+    configs:
+      default:
+        max-concurrent-calls: 25
+        max-wait-duration: 100ms
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 3s
+
+# ─── Logging ──────────────────────────────────────────────────────────────────
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [${spring.application.name}] [traceId=%X{traceId}] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.twowheeler: DEBUG         # Verbose for our code in dev
+    org.springframework.security: WARN
+    org.hibernate: WARN
+
+# ─── Springdoc OpenAPI ────────────────────────────────────────────────────────
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
