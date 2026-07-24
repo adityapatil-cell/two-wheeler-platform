@@ -1,6 +1,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# ONE Dockerfile shared by all 9 services (gateway, web-bff, platform-service,
-# workshop-service, towing-service, location-service, marketplace-service).
+# ONE Dockerfile shared by the 4 services in THIS repo:
+# gateway, web-bff, platform-service, workshop-service.
+# (towing-service, location-service, marketplace-service live in their own
+# separate repos with their own Dockerfile.)
 #
 # Why one file works: this is a Maven multi-module reactor project. Every
 # service depends on the "common" module, so we build the whole reactor and
@@ -20,9 +22,6 @@ COPY gateway/pom.xml gateway/
 COPY web-bff/pom.xml web-bff/
 COPY workshop-service/pom.xml workshop-service/
 COPY platform-service/pom.xml platform-service/
-COPY towing-service/pom.xml towing-service/
-COPY location-service/pom.xml location-service/
-COPY marketplace-service/pom.xml marketplace-service/
 RUN mvn -B dependency:go-offline || true
 
 # Now copy actual source code
@@ -31,9 +30,6 @@ COPY gateway gateway
 COPY web-bff web-bff
 COPY workshop-service workshop-service
 COPY platform-service platform-service
-COPY towing-service towing-service
-COPY location-service location-service
-COPY marketplace-service marketplace-service
 
 # Which service's jar to build (passed in from docker-compose)
 ARG SERVICE_NAME
