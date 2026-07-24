@@ -1,6 +1,6 @@
 name: Build and Push All Service Images
 
-# Runs whenever you push to main — builds all 9 images and pushes to Docker Hub
+# Runs whenever you push to master — builds the 4 services in this repo and pushes to Docker Hub
 on:
   push:
     branches: [master]
