@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 # Project exclude paths
 /two-wheeler-platform/common/target/
 /two-wheeler-platform/gateway/target/
 /two-wheeler-platform/platform-service/target/
 /two-wheeler-platform/web-bff/target/
+=======
+# Project exclude paths
+/two-wheeler-platform/common/target/
+/two-wheeler-platform/gateway/target/
+/two-wheeler-platform/platform-service/target/
+/two-wheeler-platform/web-bff/target/
+>>>>>>> 1817c6444880877d2ba3abd16033b59077091182
 /two-wheeler-platform/workshop-service/target/

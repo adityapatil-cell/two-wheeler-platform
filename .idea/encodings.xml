@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
@@ -9,4 +10,17 @@
     <file url="file://$PROJECT_DIR$/two-wheeler-platform/web-bff/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/two-wheeler-platform/workshop-service/src/main/java" charset="UTF-8" />
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/platform-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/web-bff/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/two-wheeler-platform/workshop-service/src/main/java" charset="UTF-8" />
+  </component>
+>>>>>>> 1817c6444880877d2ba3abd16033b59077091182
 </project>

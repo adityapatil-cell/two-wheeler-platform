@@ -17,6 +17,18 @@ import java.time.Duration;
  *   Retry            → handles transient network blips (max 3 attempts with backoff)
  *   Bulkhead         → limits concurrent calls per downstream service
  *
+<<<<<<< HEAD
+=======
+ *   What it actually does at runtime
+ *
+ * No new threads are spun up.
+ * At most 25 requests to a given downstream call can be "in flight" concurrently on your existing request threads.
+ * If a 26th request comes in while 25 are active, it waits up to 100ms for a slot to free up.
+ * If still no slot after 100ms, that call fails immediately with a BulkheadFullException — protecting the
+ * rest of your app's threads from getting exhausted/blocked waiting on a slow or misbehaving
+ * downstream service.
+ *
+>>>>>>> 1817c6444880877d2ba3abd16033b59077091182
  * Services can override these defaults by defining their own beans
  * or via application.yml resilience4j.* properties.
  *
