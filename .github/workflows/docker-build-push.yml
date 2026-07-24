@@ -15,9 +15,6 @@ jobs:
           - web-bff
           - platform-service
           - workshop-service
-          - towing-service
-          - location-service
-          - marketplace-service
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4

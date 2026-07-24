@@ -1,62 +1,13 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <annotationProcessing>
-      <profile name="Annotation profile for Two Wheeler Platform" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.2/mapstruct-processor-1.6.2.jar" />
-        </processorPath>
-        <module name="platform-service" />
-        <module name="web-bff" />
-        <module name="workshop-service" />
-        <module name="common" />
-        <module name="gateway" />
-      </profile>
-    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="21" />
+      <module name="gateway" target="21" />
+      <module name="platform-service" target="21" />
+      <module name="two-wheeler-platform" target="21" />
+      <module name="web-bff" target="21" />
+      <module name="workshop-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="common" options="-parameters" />
-      <module name="gateway" options="-parameters" />
-      <module name="platform-service" options="-parameters" />
-      <module name="web-bff" options="-parameters" />
-      <module name="workshop-service" options="-parameters" />
-    </option>
-  </component>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="CompilerConfiguration">
-    <annotationProcessing>
-      <profile name="Annotation profile for Two Wheeler Platform" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.2/mapstruct-processor-1.6.2.jar" />
-        </processorPath>
-        <module name="platform-service" />
-        <module name="web-bff" />
-        <module name="workshop-service" />
-        <module name="common" />
-        <module name="gateway" />
-      </profile>
-    </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="common" options="-parameters" />
-      <module name="gateway" options="-parameters" />
-      <module name="platform-service" options="-parameters" />
-      <module name="web-bff" options="-parameters" />
-      <module name="workshop-service" options="-parameters" />
-    </option>
-  </component>
->>>>>>> 1817c6444880877d2ba3abd16033b59077091182
 </project>
