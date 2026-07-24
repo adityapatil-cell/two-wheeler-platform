@@ -81,7 +81,7 @@ services:
   # ─────────────────────────── SERVICES (already on Docker Hub) ───────────────────────────
 
   platform-service:
-    image: <DOCKERHUB_USERNAME>/two-wheeler-platform-service:latest
+    image: adityapatil1998/two-wheeler-platform-service:latest
     container_name: platform-service
     ports:
       - "8081:8081"
@@ -97,7 +97,7 @@ services:
     networks: [two-wheeler-net]
 
   workshop-service:
-    image: <DOCKERHUB_USERNAME>/two-wheeler-workshop-service:latest
+    image: adityapatil1998/two-wheeler-workshop-service:latest
     container_name: workshop-service
     ports:
       - "8082:8082"
@@ -113,7 +113,7 @@ services:
     networks: [two-wheeler-net]
 
   web-bff:
-    image: <DOCKERHUB_USERNAME>/two-wheeler-web-bff:latest
+    image: adityapatil1998/two-wheeler-web-bff:latest
     container_name: web-bff
     ports:
       - "8086:8086"
@@ -127,7 +127,7 @@ services:
     networks: [two-wheeler-net]
 
   gateway:
-    image: <DOCKERHUB_USERNAME>/two-wheeler-gateway:latest
+    image: adityapatil1998/two-wheeler-gateway:latest
     container_name: gateway
     ports:
       - "8080:8080"
