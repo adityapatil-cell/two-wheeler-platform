@@ -14,37 +14,22 @@
 
     <artifactId>gateway</artifactId>
     <name>Two Wheeler Gateway</name>
-<<<<<<< HEAD
-    <description>Spring Cloud Gateway — single entry point, OIDC JWT validation, routing</description>
-
-    <dependencies>
-
-        <!-- Spring Cloud Gateway — reactive routing -->
-=======
     <description>Spring Cloud Gateway — single entry point, Cognito OIDC JWT validation, routing, rate limiting</description>
 
     <dependencies>
 
         <!-- Spring Cloud Gateway — reactive routing engine -->
->>>>>>> 1817c6444880877d2ba3abd16033b59077091182
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- OAuth2 Resource Server — validate Cognito JWT at gateway -->
-=======
         <!-- OAuth2 Resource Server — validate Cognito JWT (reactive) -->
->>>>>>> 1817c6444880877d2ba3abd16033b59077091182
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- Actuator — health checks -->
-=======
         <!-- Spring Security — reactive security filter chain -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,15 +43,11 @@
         </dependency>
 
         <!-- Actuator — health checks for K8s liveness/readiness probes -->
->>>>>>> 1817c6444880877d2ba3abd16033b59077091182
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- Resilience4j — circuit breaker on routes -->
-=======
         <!-- Micrometer OpenTelemetry — traceId propagation -->
         <dependency>
             <groupId>io.micrometer</groupId>
@@ -74,7 +55,6 @@
         </dependency>
 
         <!-- Resilience4j — circuit breaker on gateway routes -->
->>>>>>> 1817c6444880877d2ba3abd16033b59077091182
         <dependency>
             <groupId>io.github.resilience4j</groupId>
             <artifactId>resilience4j-spring-boot3</artifactId>
