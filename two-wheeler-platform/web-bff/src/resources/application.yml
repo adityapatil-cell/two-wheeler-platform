@@ -1,0 +1,44 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: web-bff
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${COGNITO_ISSUER_URI:https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_XXXXXXXX}
+
+# ─── Downstream service URLs (called via RestClient/WebClient) ───────────────
+platform-service:
+  url: ${PLATFORM_SERVICE_URL:http://localhost:8081}
+workshop-service:
+  url: ${WORKSHOP_SERVICE_URL:http://localhost:8082}
+towing-service:
+  url: ${TOWING_SERVICE_URL:http://localhost:8083}
+location-service:
+  url: ${LOCATION_SERVICE_URL:http://localhost:8085}
+marketplace-service:
+  url: ${MARKETPLACE_SERVICE_URL:http://localhost:8084}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [web-bff] [traceId=%X{traceId}] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.twowheeler: DEBUG
+    org.springframework.security: WARN
